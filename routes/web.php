@@ -7,6 +7,11 @@ use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\ProfilPemerintahanController;
 use App\Http\Controllers\LayananProdukController;
+use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\SejarahController;
+use App\Http\Controllers\StrukturOrganisasiController;
+use App\Http\Controllers\TupoksiController;
+use App\Http\Controllers\VisiMisiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,15 +53,21 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/daftar', [AuthController::class, 'daftar'])->name('daftar');
 Route::post('/daftar', [AuthController::class, 'daftarProcess'])->name('daftarProcess');
 
+// Rute untuk memproses pengiriman formulir pengaduan (POST)
+Route::post('/submit-pengaduan', [PengaduanController::class, 'submitPengaduan'])->name('submit-pengaduan');
+
 
 
 Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
 Route::get('/profil-desa', [ProfilDesaController::class, 'index'])->name('profildesa');
 Route::get('/profil-pemerintahan', [ProfilPemerintahanController::class, 'index'])->name('profilpemerintahan');
+Route::get('/visi-misi', [VisiMisiController::class, 'index'])->name('visimisi');
+Route::get('/tupoksi', [TupoksiController::class, 'index'])->name('tupoksi');
+Route::get('/struktur-organisasi', [StrukturOrganisasiController::class, 'index'])->name('strukturorganisasi');
+Route::get('/sejarah', [SejarahController::class, 'index'])->name('sejarah');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/layanan', [LayananProdukController::class, 'index'])->name('layanan');
 });
-
 
 

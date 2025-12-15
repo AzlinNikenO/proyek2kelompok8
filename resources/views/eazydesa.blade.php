@@ -130,8 +130,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'kirim
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Profil</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/profil-pemerintahan">Profil Pemerintahan</a></li>
-            <li><a class="dropdown-item" href="/profil-desa">Profil Desa</a></li>
+            <li><a class="dropdown-item" href="/profil.visi-misi">Visi Misi</a></li>
+            <li><a class="dropdown-item" href="/profil.tupoksi">Tugas dan Fungsi</a></li>
+            <li><a class="dropdown-item" href="/profil.struktur-organisasi">Struktur Organisasi</a></li>
+            <li><a class="dropdown-item" href="/profil.profil-pemerintahan">Profil Kepala Desa</a></li>
+            <li><a class="dropdown-item" href="/profil.profil-desa">Profil Desa</a></li>
+            <li><a class="dropdown-item" href="/profil.sejarah">Sejarah</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="/statistik">Statistik</a></li>
