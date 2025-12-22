@@ -35,6 +35,6 @@ class ProfilPemerintahanController extends Controller
             'jam' => '08.00 - 16.00',
         ];
 
-        return view('profilpemerintahan', compact('struktur'));
+        return view('/profil/profilpemerintahan', compact('struktur'));
     }
 }

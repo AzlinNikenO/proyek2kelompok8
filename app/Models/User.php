@@ -15,19 +15,21 @@ class User extends Authenticatable
      * Kolom yang bisa diisi massal
      */
     protected $fillable = [
-        'name',
-        'nik',
-        'nokk',
-        'ttl',
-        'jk',
-        'jk_lainnya',
-        'alamat',
-        'agama',
-        'hp',
-        'email',
-        'password',
-        'photo',
+    'name',
+    'nik',
+    'nokk',
+    'ttl',
+    'jk',
+    'jk_lainnya',
+    'alamat',
+    'agama',
+    'hp',
+    'email',
+    'password',
+    'photo',
+    'role'
     ];
+
 
     /**
      * Kolom yang disembunyikan saat serialisasi

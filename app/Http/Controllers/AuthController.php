@@ -51,6 +51,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'photo' => $photoPath,
+            'role' => $request->role,
         ]);
 
         // Auto login setelah register (opsional)
@@ -66,29 +67,25 @@ class AuthController extends Controller
      * Proses Login
      */
     public function loginProcess(Request $request)
-    {
-        // Validasi input
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:8'
-        ]);
+{
+    $credentials = $request->validate([
+        'email'    => 'required|email',
+        'password' => 'required'
+    ]);
 
-        // Ambil data login
-        $credentials = $request->only('email', 'password');
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
 
-        // Proses login
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            // Arahkan ke dashboard default
-            return redirect()->intended('/dashboard')->with('success', 'Login berhasil!');
-        }
-
+        // USER → KEMBALI KE BERANDA
+        return redirect('/')->with('success','Berhasil login');
+    }
         // Jika gagal
         return back()->withErrors([
             'email' => 'Email atau password tidak cocok.',
         ])->withInput();
     }
+
+
 
 
     /**
@@ -97,11 +94,10 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('success', 'Anda telah logout.');
+        return redirect('/');
     }
 }
 

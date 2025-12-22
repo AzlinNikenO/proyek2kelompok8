@@ -93,7 +93,7 @@
     </div>
 
     <div class="form-container">
-        <form action="{{ route('loginProcess') }}" method="POST">
+        <form action="{{ route('login.process') }}" method="POST">
             @csrf
 
             <label>Email</label>
