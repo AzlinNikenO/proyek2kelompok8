@@ -44,6 +44,10 @@ class ProfilDesaController extends Controller
 
         $notif = null;
 
+<<<<<<< HEAD
         return view('/profil/profildesa', compact('informasi','infrastruktur','desa','visits','notif'));
+=======
+        return view('profil.profildesa', compact('informasi','infrastruktur','desa','visits','notif'));
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
     }
 }

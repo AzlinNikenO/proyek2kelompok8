@@ -87,7 +87,11 @@
     </div>
 
     <div class="form-container">
+<<<<<<< HEAD
         <form action="{{ route('daftar.process') }}" method="POST" enctype="multipart/form-data">
+=======
+        <form action="{{ route('daftarProcess') }}" method="POST" enctype="multipart/form-data">
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
     @csrf
 
     <label>Nama Lengkap</label>
@@ -139,6 +143,7 @@
     <label>Pas Photo</label>
     <input type="file" name="photo" accept="image/*,video/*" capture="camera" required style="padding: 10px; border: 1px solid #d0d7e1; border-radius: 8px;">
 
+<<<<<<< HEAD
     <label>Role</label>
     <select name="role" required>
         <option value="">-- Pilih Role --</option>
@@ -147,6 +152,8 @@
     </select>
 
 
+=======
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
     <button type="submit">Daftar Sekarang</button>
 </form>
 

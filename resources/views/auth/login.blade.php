@@ -93,7 +93,11 @@
     </div>
 
     <div class="form-container">
+<<<<<<< HEAD
         <form action="{{ route('login.process') }}" method="POST">
+=======
+        <form action="{{ route('loginProcess') }}" method="POST">
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
             @csrf
 
             <label>Email</label>

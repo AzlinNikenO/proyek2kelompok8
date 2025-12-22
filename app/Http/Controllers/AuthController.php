@@ -51,7 +51,10 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'photo' => $photoPath,
+<<<<<<< HEAD
             'role' => $request->role,
+=======
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
         ]);
 
         // Auto login setelah register (opsional)
@@ -67,6 +70,7 @@ class AuthController extends Controller
      * Proses Login
      */
     public function loginProcess(Request $request)
+<<<<<<< HEAD
 {
     $credentials = $request->validate([
         'email'    => 'required|email',
@@ -79,6 +83,26 @@ class AuthController extends Controller
         // USER → KEMBALI KE BERANDA
         return redirect('/')->with('success','Berhasil login');
     }
+=======
+    {
+        // Validasi input
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+
+        // Ambil data login
+        $credentials = $request->only('email', 'password');
+
+        // Proses login
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            // Arahkan ke dashboard default
+            return redirect()->intended('/dashboard')->with('success', 'Login berhasil!');
+        }
+
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
         // Jika gagal
         return back()->withErrors([
             'email' => 'Email atau password tidak cocok.',
@@ -86,18 +110,29 @@ class AuthController extends Controller
     }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
     /**
      * Logout User
      */
     public function logout(Request $request)
     {
         Auth::logout();
+<<<<<<< HEAD
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return redirect('/');
+=======
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('success', 'Anda telah logout.');
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
     }
 }
 

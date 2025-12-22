@@ -15,6 +15,7 @@ class User extends Authenticatable
      * Kolom yang bisa diisi massal
      */
     protected $fillable = [
+<<<<<<< HEAD
     'name',
     'nik',
     'nokk',
@@ -28,6 +29,20 @@ class User extends Authenticatable
     'password',
     'photo',
     'role'
+=======
+        'name',
+        'nik',
+        'nokk',
+        'ttl',
+        'jk',
+        'jk_lainnya',
+        'alamat',
+        'agama',
+        'hp',
+        'email',
+        'password',
+        'photo',
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
     ];
 
 

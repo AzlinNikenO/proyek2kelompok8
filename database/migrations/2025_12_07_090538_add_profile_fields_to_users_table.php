@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+<<<<<<< HEAD
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
@@ -28,6 +29,29 @@ return new class extends Migration
         });
     }
 
+=======
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('nik', 20)->unique()->after('id');
+            $table->string('nokk', 20)->after('nik');
+            $table->string('ttl')->after('nokk'); // Tempat, tanggal lahir
+            $table->enum('jk', ['Laki-laki', 'Perempuan', 'Lainnya'])->after('ttl');
+            $table->string('jk_lainnya')->nullable()->after('jk');
+            $table->text('alamat')->after('jk_lainnya');
+            $table->string('agama', 50)->after('alamat');
+            $table->string('hp', 20)->after('agama');
+            $table->string('photo')->after('password'); // path foto/video
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
@@ -40,8 +64,12 @@ return new class extends Migration
                 'alamat',
                 'agama',
                 'hp',
+<<<<<<< HEAD
                 'photo',
                 'role'
+=======
+                'photo'
+>>>>>>> c10c41bb4e34c15a923ce4321b444faadd6f896d
             ]);
         });
     }
